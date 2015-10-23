@@ -1,0 +1,30 @@
+{
+    "authors": [
+        {
+            "email": "496366543@qq.com",
+            "name": "xlerr",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "xlerr\\sendcloud\\": "./"
+        }
+    },
+    "description": "\u57fa\u4e8esendCloud\u63a5\u53e3\u7684\u5c01\u88c5",
+    "keywords": [
+        "sendcloud",
+        "email",
+        "sms",
+        "yii2"
+    ],
+    "license": "BSD-3-Clause",
+    "name": "xlerr/sendcloud",
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "support": {
+        "source": "https://github.com/xlerr/sendcloud"
+    },
+    "type": "plugin"
+}
