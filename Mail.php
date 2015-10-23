@@ -9,8 +9,8 @@ use Yii;
  * 配置sendCloud
  * ~~~~~~~~
  * 'components' => []
-　*　    'sendCloud' => [
-　*　        'class'    => 'xlerr\sendcloud\Mail',
+ *　    'sendCloud' => [
+ *　        'class'    => 'xlerr\sendcloud\Mail',
  * 	       'user'     => 'user',
  * 	       'key'      => 'key',
  * 	       'from'     => 'aaa@qq.com',
