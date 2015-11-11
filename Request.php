@@ -82,10 +82,10 @@ class Request
 
 	public function afterRequest($result)
 	{
-		$info = json_decode($result, true);
+		$info = json_decode($result);
 		if ($this->debug === true) {
 			Yii::trace([
-				'params'	  => $this->_params,
+				'params'      => $this->_params,
 				'result'      => $result,
 				'result_json' => $info,
 			], __CLASS__);
