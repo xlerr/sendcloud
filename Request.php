@@ -1,6 +1,8 @@
 <?php
 namespace xlerr\sendcloud;
 
+use Yii;
+
 class Request
 {
 	/**
@@ -82,7 +84,7 @@ class Request
 
 	public function afterRequest($result)
 	{
-		$info = json_decode($result);
+		$info = json_decode($result, true);
 		if ($this->debug === true) {
 			Yii::trace([
 				'params'      => $this->_params,
@@ -94,15 +96,15 @@ class Request
 			$this->setError('Abnormal results');
 			return false;
 		}
-		if ($info->message === 'error') {
-			$this->setError($info->errors);
+		if ($info['message'] === 'error') {
+			$this->setError($info['errors']);
 			return false;
 		}
-		if ($info->message !== 'success') {
+		if ($info['message'] !== 'success') {
 			$this->setError('Unknown error');
 			return false;
 		}
-		return true;
+		return $info;
 	}
 
 	public function setError($error)
