@@ -32,10 +32,10 @@ class Sms {
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $this->url);
-        curl_setopt($curl, CURLOPT_HEADER, FALSE);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($curl, CURLOPT_NOBODY, TRUE);
-        curl_setopt($curl, CURLOPT_POST, TRUE);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_NOBODY, true);
+        curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, [
             'account'  => $this->uid,
             'password' => $this->pwd,
@@ -43,6 +43,9 @@ class Sms {
             'content'  => rawurlencode($content),
         ]);
         $return = curl_exec($curl);
+        if ($return === false) {
+            Yii::error(curl_getinfo($curl), __METHOD__);
+        }
         curl_close($curl);
 
         return $return;
